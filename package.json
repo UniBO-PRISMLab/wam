@@ -7,8 +7,13 @@
     "wade": "index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./node_modules/.bin/tsc -p ."
+    "build": "./node_modules/.bin/tsc -p .",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:fix": "pretty-quick --staged",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "precommit": "run-s format:fix lint",
+    "start": "ts-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "WoT",
@@ -22,17 +27,23 @@
     "Lorenzo Gigli <lorenzo.gigli@studio.unibo.it>"
   ],
   "license": "MIT",
-  "devDependencies": {
-    "@types/node": "^12.11.1",
-    "typescript": "^3.6.4"
-  },
   "dependencies": {
-    "@types/npm": "^2.0.31",
     "chalk": "^2.4.2",
     "clear": "^0.1.0",
     "commander": "^3.0.2",
     "figlet": "^1.2.4",
     "npm": "^6.12.0",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "@types/node": "^12.11.1",
+    "@types/npm": "^2.0.31",
+    "husky": "^3.0.9",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^2.0.0",
+    "ts-node": "^8.4.1",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.4"
   }
 }
