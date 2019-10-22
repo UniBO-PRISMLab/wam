@@ -2,9 +2,9 @@
   "name": "wade",
   "version": "0.1.0",
   "description": "Web of Thing Application Development Enviroment",
-  "main": "index.js",
+  "main": "wade.js",
   "bin": {
-    "wade": "index.js"
+    "wade": "wade.js"
   },
   "scripts": {
     "build": "./node_modules/.bin/tsc -p .",
@@ -12,7 +12,7 @@
     "format:fix": "pretty-quick --staged",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "precommit": "run-s format:fix lint",
-    "start": "ts-node src/index.ts",
+    "start": "ts-node src/wade.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -32,10 +32,15 @@
     "clear": "^0.1.0",
     "commander": "^3.0.2",
     "figlet": "^1.2.4",
+    "fs-extra": "^8.1.0",
+    "handlebars": "^4.4.5",
+    "inquirer": "^7.0.0",
     "npm": "^6.12.0",
     "path": "^0.12.7"
   },
   "devDependencies": {
+    "@types/fs-extra": "^8.0.1",
+    "@types/inquirer": "^6.5.0",
     "@types/node": "^12.11.1",
     "@types/npm": "^2.0.31",
     "husky": "^3.0.9",

@@ -1,0 +1,25 @@
+{
+  "name": "{{name}}",
+  "version": "{{version}}",
+  "description": "{{description}}",
+  "main": "thing.js",
+  "scripts": {
+    "build" : "wade build",
+    "debug" : "wot-runtime -debug ./dist/bundle.js"
+  },
+  "keywords": [
+    {{#each keywords}}
+      "{{this}}"{{#unless @last}},{{/unless}}
+    {{/each}}
+  ],
+  "author": "{{author}}",
+  "license": "{{license}}",
+  "devDependencies": {
+    "@node-wot/cli": "^0.6.2",
+    "wade": "^1.23.1"
+  },
+  "dependencies": {
+    "@node-wot/core": "^0.6.2",
+    "@arces-wot/sanjs": "^0.4.0"
+  }
+}
