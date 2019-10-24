@@ -3,7 +3,7 @@ import * as inquirer from 'inquirer';
 import { Choice, License } from '../models/choice';
 import { InitData } from '../models/initData';
 
-export async function askInit(): Promise<InitData> {
+export async function askInit(defaultName: string): Promise<InitData> {
   const licenses: Choice[] = [
     { name: 'Apache License 2.0', value: License.APACHE },
     { name: 'GNU General Public License v3.0', value: License.GPL3 },
@@ -14,6 +14,7 @@ export async function askInit(): Promise<InitData> {
     {
       name: 'name',
       type: 'input',
+      default: defaultName,
     },
     {
       name: 'version',

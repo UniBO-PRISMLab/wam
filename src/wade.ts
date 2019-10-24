@@ -6,9 +6,8 @@ import { init } from './commands/init';
 program.name('Wade').version('0.1.0');
 
 program
-  .command('init')
-  .description('initialize a new project')
-  .option('-d, --directory [path]', 'the directory name to create the project in', '.')
+  .command('init [directory]')
+  .description('initialize a new project in a directory (default: ".")')
   .action(init)
   .alias('i');
 

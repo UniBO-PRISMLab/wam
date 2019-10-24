@@ -1,17 +1,18 @@
 import { readFileSync } from 'fs';
 import { copySync, ensureDirSync, outputFileSync } from 'fs-extra';
 import { compile } from 'handlebars';
-import { extname, resolve } from 'path';
+import { extname, resolve, basename } from 'path';
 
 import { askInit } from '../questions/askInit';
 import { trimFileExt } from '../utils/trimFileExt';
 
-export async function init({ directory }: any): Promise<void> {
-  const initData = await askInit();
+export async function init(directory: any): Promise<void> {
+  const selectedDirectory = directory ? directory : '.';
+
+  const initData = await askInit(basename(resolve(selectedDirectory)));
   initData.keywords = (initData.keywords as string).split(',');
 
   const selectedTemplate = resolve(__dirname, '../../templates/simple');
-  const selectedDirectory = `${directory}/${initData.name}`;
 
   const transformFile = (src: string, dest: string): boolean => {
     if (extname(src) === '.hbs') {
