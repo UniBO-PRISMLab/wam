@@ -13,6 +13,7 @@
     "removeComments": true,
     "sourceMap": true,
     "strictNullChecks": true,
+    "resolveJsonModule": true,
     "target": "es5"
   },
   "exclude": ["node_modules", "dist"]

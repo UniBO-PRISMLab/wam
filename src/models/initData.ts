@@ -7,4 +7,5 @@ export interface InitData {
   keywords: string | string[];
   author: string;
   license: License;
+  selfVersion: string;
 }

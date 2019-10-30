@@ -5,12 +5,14 @@ import { extname, resolve, basename } from 'path';
 
 import { askInit } from '../questions/askInit';
 import { trimFileExt } from '../utils/trimFileExt';
+import * as packageJson from '../../package.json';
 
 export async function init(directory: any): Promise<void> {
   const selectedDirectory = directory ? directory : '.';
 
   const initData = await askInit(basename(resolve(selectedDirectory)));
   initData.keywords = (initData.keywords as string).split(',');
+  initData.selfVersion = `^${packageJson.version}`;
 
   const selectedTemplate = resolve(__dirname, '../../templates/simple');
 
