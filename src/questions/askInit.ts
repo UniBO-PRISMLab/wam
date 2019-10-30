@@ -19,6 +19,7 @@ export async function askInit(defaultName: string): Promise<InitData> {
     {
       name: 'version',
       type: 'input',
+      default: '1.0.0',
     },
     {
       name: 'description',
