@@ -1,5 +1,5 @@
 {
-  "name": "@arces-wot/wade",
+  "name": "@arces-wot/wam",
   "version": "0.1.0",
   "description": "Web of Thing Application Development Enviroment",
   "main": "wade.js",
