@@ -2,9 +2,9 @@
   "name": "@arces-wot/wam",
   "version": "0.1.0",
   "description": "Web of Thing Application Development Enviroment",
-  "main": "wade.js",
+  "main": "wam.js",
   "bin": {
-    "wade": "wade.js"
+    "wam": "wam.js"
   },
   "scripts": {
     "build": "./node_modules/.bin/tsc -p .",
@@ -12,7 +12,7 @@
     "format:fix": "pretty-quick --staged",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "precommit": "run-s format:fix lint",
-    "start": "ts-node src/wade.ts",
+    "start": "ts-node src/wam.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

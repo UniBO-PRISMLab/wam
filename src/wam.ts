@@ -3,7 +3,7 @@ import * as program from 'commander';
 
 import { init } from './commands/init';
 
-program.name('Wade').version('0.1.0');
+program.name('wam').version('0.1.0');
 
 program
   .command('init [directory]')
