@@ -13,7 +13,7 @@ program
   .alias('i');
 
 program
-  .command('build')
+  .command('build [file] [output]')
   .description('package the application in a single Thing Application Script')
   .action(build)
   .alias('b');

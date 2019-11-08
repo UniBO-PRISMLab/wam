@@ -1,14 +1,18 @@
 import { rollup } from 'rollup';
 import nodeResolve from 'rollup-plugin-node-resolve';
 
-export async function build() {
+export async function build(file: string, output: string) {
+  if (!file) {
+    throw new Error('No input file selected');
+  }
+
   const bundle = await rollup({
-    input: '../testWade/src/thing.js',
+    input: file,
     plugins: [nodeResolve()],
   });
 
   await bundle.write({
-    file: '../testWade/dist/thing.bundle.js',
+    file: output,
     format: 'cjs',
     sourcemap: true,
   });
