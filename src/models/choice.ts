@@ -8,3 +8,7 @@ export enum License {
   GPL3 = 'GPL3',
   MIT = 'MIT',
 }
+export enum Lang {
+  JS = 'JavaScript',
+  TS = 'TypeScript',
+}

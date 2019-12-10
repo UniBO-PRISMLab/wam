@@ -1,4 +1,4 @@
-import { License } from './choice';
+import { License, Lang } from './choice';
 
 export interface InitData {
   name: string;
@@ -8,4 +8,5 @@ export interface InitData {
   author: string;
   license: License;
   selfVersion: string;
+  lang: Lang;
 }

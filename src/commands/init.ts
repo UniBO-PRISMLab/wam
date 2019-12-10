@@ -6,6 +6,7 @@ import { extname, resolve, basename } from 'path';
 import { askInit } from '../questions/askInit';
 import { trimFileExt } from '../utils/trimFileExt';
 import * as packageJson from '../../package.json';
+import { Lang } from '../models/choice';
 
 export async function init(directory: any): Promise<void> {
   const selectedDirectory = directory ? directory : '.';
@@ -14,7 +15,8 @@ export async function init(directory: any): Promise<void> {
   initData.keywords = (initData.keywords as string).split(',');
   initData.selfVersion = `^${packageJson.version}`;
 
-  const selectedTemplate = resolve(__dirname, '../../templates/simple');
+  const templatePath = initData.lang === Lang.JS ? '../../templates/simple' : '../../templates/simplets';
+  const selectedTemplate = resolve(__dirname, templatePath);
 
   const transformFile = (src: string, dest: string): boolean => {
     if (extname(src) === '.hbs') {

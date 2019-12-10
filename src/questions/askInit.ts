@@ -1,6 +1,6 @@
 import * as inquirer from 'inquirer';
 
-import { Choice, License } from '../models/choice';
+import { Choice, License, Lang } from '../models/choice';
 import { InitData } from '../models/initData';
 
 export async function askInit(defaultName: string): Promise<InitData> {
@@ -10,7 +10,15 @@ export async function askInit(defaultName: string): Promise<InitData> {
     { name: 'MIT License', value: License.MIT },
   ];
 
+  const langs: Lang[] = [Lang.TS, Lang.JS];
+
   return inquirer.prompt([
+    {
+      name: 'language',
+      type: 'list',
+      default: Lang.JS,
+      choices: langs,
+    },
     {
       name: 'name',
       type: 'input',
