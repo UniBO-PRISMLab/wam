@@ -8,7 +8,13 @@
       "name": "Node Inspector",
       "type": "node",
       "request": "launch",
-      "args": ["${workspaceRoot}/src/wade.ts", "build"],
+      "args": [
+        "${workspaceRoot}/src/wade.ts",
+        "build",
+        "--typescript",
+        "C:\\Users\\reluc\\Progetti\\testWAM\\src\\thing.ts",
+        "C:\\Users\\reluc\\Progetti\\testWAM\\dist\\out.js"
+      ],
       "runtimeArgs": ["-r", "ts-node/register"],
       "cwd": "${workspaceRoot}",
       "protocol": "inspector",

@@ -1,14 +1,19 @@
 import { rollup } from 'rollup';
 import nodeResolve from 'rollup-plugin-node-resolve';
+import typescript from '@rollup/plugin-typescript';
+import { Command } from 'commander';
 
-export async function build(file: string, output: string) {
+export async function build(file: string, output: string, cmd: Command) {
   if (!file) {
     throw new Error('No input file selected');
   }
 
+  const pluginList = [nodeResolve()];
+  cmd.opts().typescript && pluginList.push(typescript());
+
   const bundle = await rollup({
     input: file,
-    plugins: [nodeResolve()],
+    plugins: pluginList,
   });
 
   await bundle.write({

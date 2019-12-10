@@ -15,6 +15,7 @@ program
 program
   .command('build [file] [output]')
   .description('package the application in a single Thing Application Script')
+  .option('-t, --typescript', 'Activate TypeScript mode')
   .action(build)
   .alias('b');
 
