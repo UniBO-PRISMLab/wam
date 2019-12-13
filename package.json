@@ -2,12 +2,14 @@
   "name": "@arces-wot/wam",
   "version": "0.1.0",
   "description": "Web of Thing Application Development Enviroment",
-  "main": "wam.js",
+  "main": "./dist/src/wam.js",
   "bin": {
-    "wam": "wam.js"
+    "wam": "./dist/src/wam.js"
   },
   "scripts": {
+    "prebuild": "rm -rf ./dist",
     "build": "./node_modules/.bin/tsc -p .",
+    "postbuild": "copyfiles \"./templates/**\" ./dist",
     "format": "prettier --write \"src/**/*.ts\"",
     "format:fix": "pretty-quick --staged",
     "lint": "tslint -p tsconfig.json -c tslint.json",
