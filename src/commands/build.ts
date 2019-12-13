@@ -1,6 +1,8 @@
 import { rollup } from 'rollup';
-import nodeResolve from 'rollup-plugin-node-resolve';
+import nodeResolve from '@rollup/plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
+import json from '@rollup/plugin-json';
 import { Command } from 'commander';
 
 export async function build(file: string, output: string, cmd: Command) {
@@ -8,7 +10,9 @@ export async function build(file: string, output: string, cmd: Command) {
     throw new Error('No input file selected');
   }
 
-  const pluginList = [nodeResolve()];
+  const pluginList = [nodeResolve({
+    preferBuiltins: true,
+  }), commonjs(), json()];
 
   if (cmd.opts().typescript) {
     pluginList.push(typescript());

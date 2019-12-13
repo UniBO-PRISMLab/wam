@@ -9,10 +9,9 @@
       "type": "node",
       "request": "launch",
       "args": [
-        "${workspaceRoot}/src/wade.ts",
+        "${workspaceRoot}/src/wam.ts",
         "build",
-        "--typescript",
-        "C:\\Users\\reluc\\Progetti\\testWAM\\src\\thing.ts",
+        "C:\\Users\\reluc\\Progetti\\testWAM\\src\\thing.js",
         "C:\\Users\\reluc\\Progetti\\testWAM\\dist\\out.js"
       ],
       "runtimeArgs": ["-r", "ts-node/register"],
