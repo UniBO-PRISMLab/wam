@@ -14,8 +14,8 @@ export async function init(directory: any): Promise<void> {
   const initData = await askInit(basename(resolve(selectedDirectory)));
   initData.keywords = (initData.keywords as string).split(',');
   initData.selfVersion = `^${packageJson.version}`;
-
-  const templatePath = initData.lang === Lang.JS ? '../../templates/simple' : '../../templates/simplets';
+  
+  const templatePath = initData.language === Lang.JS ? '../../templates/simple' : '../../templates/simplets';
   const selectedTemplate = resolve(__dirname, templatePath);
 
   const transformFile = (src: string, dest: string): boolean => {

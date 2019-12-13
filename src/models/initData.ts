@@ -8,5 +8,5 @@ export interface InitData {
   author: string;
   license: License;
   selfVersion: string;
-  lang: Lang;
+  language: Lang;
 }
