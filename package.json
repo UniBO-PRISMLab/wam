@@ -39,7 +39,7 @@
     "fs-extra": "^8.1.0",
     "handlebars": "^4.4.5",
     "inquirer": "^7.0.0",
-    "npm": "^6.13.0",
+    "npm": "^6.13.4",
     "path": "^0.12.7",
     "rollup": "^1.26.3",
     "rollup-plugin-commonjs": "^10.1.0",
