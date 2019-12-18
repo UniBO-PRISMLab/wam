@@ -5,7 +5,7 @@
   "main": "thing.js",
   "scripts": {
     "build" : "wam build --typescript ./src/thing.ts ./dist/bundle.js",
-    "debug" : "wot-servient -debug ./dist/bundle.js",
+    "debug" : "wot-servient --inspect-brk ./dist/bundle.js",
     "start" : "wot-servient ./dist/bundle.js"
   },
   "keywords": [
