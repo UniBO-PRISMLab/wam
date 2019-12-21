@@ -1,6 +1,6 @@
 {
   "name": "@arces-wot/wam",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Web of Thing Application Development Enviroment",
   "main": "./dist/src/wam.js",
   "bin": {
