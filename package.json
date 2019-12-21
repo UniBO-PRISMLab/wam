@@ -6,10 +6,14 @@
   "bin": {
     "wam": "./dist/src/wam.js"
   },
+  "repository": {
+    "url": "https://github.com/arces-wot/wam",
+    "type": "git"
+  },
   "scripts": {
     "prebuild": "rm -rf ./dist",
     "build": "./node_modules/.bin/tsc -p .",
-    "postbuild": "copyfiles \"./templates/**\" ./dist",
+    "postbuild": "copyfiles \"./templates/**\" ./dist && rm ./dist/package.json",
     "format": "prettier --write \"src/**/*.ts\"",
     "format:fix": "pretty-quick --staged",
     "lint": "tslint -p tsconfig.json -c tslint.json",
@@ -49,7 +53,7 @@
     "@rollup/plugin-node-resolve": "^6.0.0",
     "@types/fs-extra": "^8.0.1",
     "@types/inquirer": "^6.5.0",
-    "@types/node": "^12.11.1",
+    "@types/node": "^12.12.21",
     "@types/npm": "^2.0.31",
     "@types/rollup": "^0.54.0",
     "copyfiles": "^2.1.1",

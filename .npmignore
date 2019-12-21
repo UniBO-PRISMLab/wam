@@ -1,0 +1,9 @@
+src/
+templates/
+.vscode/
+node_modules/
+
+.prettierrc
+.gitignore
+tsconfig.json
+tslint.json
