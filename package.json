@@ -13,7 +13,7 @@
   "scripts": {
     "prebuild": "rm -rf ./dist",
     "build": "./node_modules/.bin/tsc -p .",
-    "postbuild": "copyfiles \"./templates/**\" ./dist && rm ./dist/package.json",
+    "postbuild": "copyfiles \"./templates/**\" ./dist",
     "format": "prettier --write \"src/**/*.ts\"",
     "format:fix": "pretty-quick --staged",
     "lint": "tslint -p tsconfig.json -c tslint.json",
