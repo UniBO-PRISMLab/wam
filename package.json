@@ -47,7 +47,8 @@
     "path": "^0.12.7",
     "rollup": "^1.26.3",
     "rollup-plugin-commonjs": "^10.1.0",
-    "@rollup/plugin-node-resolve": "^6.0.0"
+    "@rollup/plugin-node-resolve": "^6.0.0",
+    "typescript": "^3.6.4"
   },
   "devDependencies": {
     "@types/fs-extra": "^8.0.1",
@@ -61,7 +62,6 @@
     "prettier": "^1.18.2",
     "pretty-quick": "^2.0.0",
     "ts-node": "^8.4.1",
-    "tslint": "^5.20.0",
-    "typescript": "^3.6.4"
+    "tslint": "^5.20.0"
   }
 }
