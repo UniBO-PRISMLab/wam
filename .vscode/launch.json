@@ -21,6 +21,19 @@
       "env": {
         "TS_NODE_IGNORE": "false"
       }
+    },
+    {
+      "name": "Init",
+      "type": "node",
+      "request": "launch",
+      "args": ["${workspaceRoot}/src/wam.ts", "init", "C:\\Users\\reluc\\Progetti\\testWAM\\testNPM"],
+      "runtimeArgs": ["-r", "ts-node/register"],
+      "cwd": "${workspaceRoot}",
+      "protocol": "inspector",
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "TS_NODE_IGNORE": "false"
+      }
     }
   ]
 }
