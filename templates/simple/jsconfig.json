@@ -1,9 +1,5 @@
 {
   "compilerOptions": {
-    "incremental": true,
-    "module": "commonjs",
-    "sourceMap": true,
-    "target": "es5",
     "types": ["./types"]
   },
   "exclude": ["node_modules", "dist"]
