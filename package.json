@@ -19,6 +19,7 @@
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "precommit": "run-s format:fix lint",
     "start": "ts-node src/wam.ts",
+    "prepublish": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
