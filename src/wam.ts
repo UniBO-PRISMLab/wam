@@ -1,10 +1,18 @@
 #!/usr/bin/env node
+// tslint:disable:no-console
 import program from 'commander';
 
 import { init } from './commands/init';
 import { build } from './commands/build';
+import figlet from 'figlet';
+import chalk from 'chalk';
 
-program.name('wam').version('0.1.0');
+program.name('wam').version('0.2.0');
+
+program.on('command:*', cmd => {
+  console.log('Invalid command', cmd[0]);
+  program.help();
+});
 
 program
   .command('init [directory]')
@@ -19,8 +27,20 @@ program
   .action(build)
   .alias('b');
 
-program.parse(process.argv);
+figlet.text(
+  'WAM',
+  {
+    font: 'Standard',
+  },
+  (err, data) => {
+    if (data) {
+      console.log(chalk.green(data));
+    }
 
-if (program.args.length === 0) {
-  program.help();
-}
+    program.parse(process.argv);
+
+    if (program.args.length === 0) {
+      program.help();
+    }
+  },
+);

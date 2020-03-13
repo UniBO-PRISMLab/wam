@@ -1,3 +1,4 @@
+// tslint:disable:no-console
 import { readFileSync } from 'fs';
 import { copySync, ensureDirSync, outputFileSync } from 'fs-extra';
 import { compile } from 'handlebars';
@@ -6,6 +7,7 @@ import { extname, resolve, basename } from 'path';
 import { askInit } from '../questions/askInit';
 import { trimFileExt } from '../utils/trimFileExt';
 import * as packageJson from '../../package.json';
+import chalk from 'chalk';
 import { Lang } from '../models/choice';
 
 export async function init(directory: any): Promise<void> {
@@ -29,4 +31,12 @@ export async function init(directory: any): Promise<void> {
 
   ensureDirSync(selectedDirectory);
   copySync(selectedTemplate, selectedDirectory, { filter: transformFile });
+
+  console.log();
+  console.log(`${chalk.bold.green('WAM')}! your project is ready`);
+  console.log('execute the following command to start the development:');
+
+  console.log();
+  console.log(`${chalk.bold('cd')} ${resolve(selectedDirectory)}`);
+  console.log(`${chalk.bold('npm')} install`);
 }

@@ -1,7 +1,7 @@
 {
   "name": "@arces-wot/wam",
   "version": "0.1.6",
-  "description": "Web of Thing Application Development Enviroment",
+  "description": "Web of Thing Application Manager",
   "main": "./dist/src/wam.js",
   "bin": {
     "wam": "./dist/src/wam.js"
@@ -35,6 +35,7 @@
   "license": "MIT",
   "dependencies": {
     "@rollup/plugin-json": "^4.0.0",
+    "@rollup/plugin-node-resolve": "^6.0.0",
     "@rollup/plugin-typescript": "^2.0.1",
     "chalk": "^2.4.2",
     "clear": "^0.1.0",
@@ -43,14 +44,13 @@
     "fs-extra": "^8.1.0",
     "handlebars": "^4.4.5",
     "inquirer": "^7.0.0",
-    "npm": "^6.13.4",
     "path": "^0.12.7",
     "rollup": "^1.26.3",
     "rollup-plugin-commonjs": "^10.1.0",
-    "@rollup/plugin-node-resolve": "^6.0.0",
     "typescript": "^3.6.4"
   },
   "devDependencies": {
+    "@types/figlet": "^1.2.0",
     "@types/fs-extra": "^8.0.1",
     "@types/inquirer": "^6.5.0",
     "@types/node": "^12.12.21",
