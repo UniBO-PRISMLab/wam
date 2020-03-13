@@ -10,9 +10,13 @@ export async function build(file: string, output: string, cmd: Command) {
     throw new Error('No input file selected');
   }
 
-  const pluginList = [nodeResolve({
-    preferBuiltins: true,
-  }), commonjs(), json()];
+  const pluginList = [
+    nodeResolve({
+      preferBuiltins: true,
+    }),
+    commonjs(),
+    json(),
+  ];
 
   if (cmd.opts().typescript) {
     pluginList.push(typescript());
