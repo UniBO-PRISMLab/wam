@@ -45,6 +45,7 @@
     "fs-extra": "^8.1.0",
     "handlebars": "^4.4.5",
     "inquirer": "^7.0.0",
+    "magic-string": "^0.25.7",
     "path": "^0.12.7",
     "rollup": "^1.26.3",
     "rollup-plugin-commonjs": "^10.1.0",
