@@ -7,7 +7,7 @@ import { build } from './commands/build';
 import figlet from 'figlet';
 import chalk from 'chalk';
 
-program.name('wam').version('0.2.0');
+program.name('wam').version('0.2.2');
 
 program.on('command:*', cmd => {
   console.log('Invalid command', cmd[0]);
