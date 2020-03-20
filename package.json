@@ -43,7 +43,7 @@
     "commander": "^3.0.2",
     "figlet": "^1.2.4",
     "fs-extra": "^8.1.0",
-    "handlebars": "^4.4.5",
+    "handlebars": "^4.7.3",
     "inquirer": "^7.0.0",
     "magic-string": "^0.25.7",
     "path": "^0.12.7",
