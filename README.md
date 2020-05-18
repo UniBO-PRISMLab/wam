@@ -28,5 +28,5 @@ for further info on how to effectively use WAM see the [wiki](https://github.com
 
 - Set up a node-wot project automatically much like npm does for node.js packages and applications.
 - Bundle your application in one single script.
-- Supports Typescript based projects: their are transcopiled to js and than bundled in a single application file.
+- Supports Typescript based projects: they are transcompiled to js and than bundled in a single application file.
 - TBD More to come.
