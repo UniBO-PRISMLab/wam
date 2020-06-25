@@ -5,8 +5,8 @@
   "main": "thing.js",
   "scripts": {
     "build" : "wam build ./src/thing.js ./dist/bundle.js",
-    "debug" : "wot-servient --inspect-brk ./src/thing.js",
-    "start" : "wot-servient ./dist/bundle.js"
+    "debug" : "wot-servient --inspect-brk -f servient.config.json ./src/thing.js",
+    "start" : "wot-servient -f servient.config.json ./dist/bundle.js"
   },
   "keywords": [
     {{#each keywords}}

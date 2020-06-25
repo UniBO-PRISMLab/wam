@@ -1,0 +1,9 @@
+{
+  "servient": {
+    "clientOnly": false,
+    "scriptAction": false
+  },
+  "http": { "port": 8080, "selfSigned": false },
+  "coap": { "port": 5683 },
+  "log": { "level": "info" }
+}
