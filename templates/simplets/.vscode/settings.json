@@ -1,0 +1,116 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["servient.config.json"],
+      "schema": {
+        "type": "object",
+        "properties": {
+          "servient": {
+            "type": "object",
+            "properties": {
+              "_staticAddress": {
+                "type": "string"
+              },
+              "scriptDir": {
+                "type": "string"
+              },
+              "scriptAction": {
+                "type": "boolean",
+                "default": true
+              },
+              "clientOnly": {
+                "type": "boolean",
+                "default": false,
+                "description": "Do not start any protocol server"
+              }
+            }
+          },
+          "log": {
+            "type": "object",
+            "properties": {
+              "level": {
+                "type": "string",
+                "default": "info",
+                "enum": ["info", "debug", "warning", "error"]
+              }
+            }
+          },
+          "http": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string"
+              },
+              "allowSelfSigned": {
+                "type": "boolean"
+              },
+              "port": {
+                "type": "number"
+              },
+              "proxy": {
+                "properties": {
+                  "href": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "scheme": {
+                    "enum": ["basic", "bearer"],
+                    "type": "string"
+                  },
+                  "token": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "security": {
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "proxy": {
+                    "type": "string"
+                  },
+                  "scheme": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "serverCert": {
+                "type": "string"
+              },
+              "serverKey": {
+                "type": "string"
+              }
+            }
+          },
+          "coap": {
+            "type": "object",
+            "properties": {
+              "port": { "type": "number" }
+            }
+          },
+          "mqtt": {
+            "type": "object",
+            "properties": {
+              "username": { "type": "string" },
+              "password": { "type": "string" },
+              "clientId": { "type": "string" },
+              "protocolVersion": { "type": "number" }
+            }
+          },
+          "credentials": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      }
+    }
+  ]
+}
