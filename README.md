@@ -6,6 +6,8 @@
 
 🚀 jumpstart your WoT application!
 
+WAM ❤ [td-code](https://marketplace.visualstudio.com/items?itemName=arces-wot.td-code). Please install it in your vscode instance to have a even more pleasant WoT development experience.
+
 # Installation
 
 ```
