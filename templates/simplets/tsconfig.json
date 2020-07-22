@@ -4,7 +4,9 @@
     "module": "commonjs",
     "sourceMap": true,
     "target": "es5",
-    "types": ["./types"]
+    "types": ["./types"],
+    "moduleResolution": "node",
+    "resolveJsonModule": true
   },
   "exclude": ["node_modules", "dist"]
 }
