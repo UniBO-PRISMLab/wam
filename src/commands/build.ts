@@ -5,10 +5,25 @@ import typescript from '@rollup/plugin-typescript';
 import json from '@rollup/plugin-json';
 import rollupWoT from '../utils/rollup-wot-plugin';
 import { Command } from 'commander';
+import { existsSync, readFileSync } from 'fs';
 
-export async function build(file: string, output: string, cmd: Command) {
+export async function build(file: string | undefined, output: string | undefined, cmd: Command) {
   if (!file) {
-    throw new Error('No input file selected');
+    if (!existsSync('./package.json')) {
+      throw new Error('No input file selected');
+    }
+
+    const packageInfo = JSON.parse(readFileSync('./package.json', 'utf8'));
+
+    if (!packageInfo.main) {
+      throw new Error('No input file selected: missing main property in package.json');
+    }
+
+    file = packageInfo.main;
+  }
+
+  if (!output) {
+    output = './dist/bundle.js';
   }
 
   const pluginList = [
@@ -23,7 +38,7 @@ export async function build(file: string, output: string, cmd: Command) {
     pluginList.push(typescript());
   }
 
-  pluginList.push(rollupWoT({ mainFile: file }));
+  pluginList.push(rollupWoT({ mainFile: file! }));
 
   const bundle = await rollup({
     input: file,
