@@ -1,7 +1,6 @@
 import { rollup } from 'rollup';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
-import typescript from '@rollup/plugin-typescript';
 import json from '@rollup/plugin-json';
 import rollupWoT from '../utils/rollup-wot-plugin';
 import { Command } from 'commander';
@@ -35,12 +34,29 @@ export async function build(file: string | undefined, output: string | undefined
   ];
 
   if (cmd.opts().typescript) {
-    pluginList.push(typescript());
+    // Use user defined ts compiler
+    module.paths = [`${process.cwd()}\\node_modules`, ...module.paths];
+    try {
+      const typescriptPlugin = require('@rollup/plugin-typescript');
+      const ts = require('typescript');
+
+      pluginList.push(typescriptPlugin({ typescript: ts }));
+    } catch (error) {
+      // tslint:disable:no-console
+      console.error(error);
+      console.log();
+      console.log('Mmmh.. have you tried:');
+      console.log();
+      console.log('npm i typescript');
+      console.log('npm i @rollup/plugin-typescript');
+      return;
+    }
   }
 
   pluginList.push(rollupWoT({ mainFile: file! }));
 
   const bundle = await rollup({
+    context: process.cwd(),
     input: file,
     plugins: pluginList,
   });
