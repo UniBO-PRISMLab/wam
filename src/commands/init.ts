@@ -9,6 +9,7 @@ import { trimFileExt } from '../utils/trimFileExt';
 import * as packageJson from '../../package.json';
 import chalk from 'chalk';
 import { Lang } from '../models/choice';
+import install from '../utils/npm-install';
 
 export async function init(directory: any): Promise<void> {
   const selectedDirectory = directory ? directory : '.';
@@ -33,10 +34,14 @@ export async function init(directory: any): Promise<void> {
   copySync(selectedTemplate, selectedDirectory, { filter: transformFile });
 
   console.log();
-  console.log(`${chalk.bold.green('WAM')}! your project is ready`);
-  console.log('execute the following command to start the development:');
+  console.log(`${chalk.bold('Thanks!')}; installing packages using ${chalk.bold('npm')}:`);
+  await install(selectedDirectory);
 
   console.log();
-  console.log(`${chalk.bold('cd')} ${resolve(selectedDirectory)}`);
-  console.log(`${chalk.bold('npm')} install`);
+  console.log();
+  console.log(`${chalk.bold.green('WAM')}! your project is ready`);
+  console.log(`try it out!:`);
+  console.log(
+    `${chalk.bold('cd')} ${selectedDirectory} && ${chalk.bold('npm')} run build && ${chalk.bold('npm')} start`,
+  );
 }
