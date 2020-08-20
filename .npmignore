@@ -5,5 +5,5 @@ node_modules/
 
 .prettierrc
 .gitignore
-tsconfig.json
+/tsconfig.json
 tslint.json
