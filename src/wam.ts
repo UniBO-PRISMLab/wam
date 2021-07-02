@@ -4,10 +4,11 @@ import program from 'commander';
 
 import { init } from './commands/init';
 import { build } from './commands/build';
+import { version } from '../package.json';
 import figlet from 'figlet';
 import chalk from 'chalk';
 
-program.name('wam').version('0.2.2');
+program.name('wam').version(version);
 
 program.on('command:*', cmd => {
   console.log('Invalid command', cmd[0]);
