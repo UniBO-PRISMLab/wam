@@ -31,11 +31,8 @@ function installV6(projectDir: string): Promise<void> {
 
 function installV7(projectDir: string): Promise<void> {
   return new Promise((resolve, reject) => {
-    // @ts-ignore
     npm.load(() => {
       npm.prefix = projectDir;
-      // @ts-ignore
-      // @types/global-npm define a wrong ts declaration for install function
       npm.commands.install([], error => {
         if (error) {
           reject(error);
