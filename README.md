@@ -19,8 +19,8 @@ npm i @arces-wot/wam -g
 ```
 wam init yourproject
 // aswer the questions
+// wait for the installation process 💈
 cd yourproject
-npm install
 // you are ready to go! 👍
 ```
 
