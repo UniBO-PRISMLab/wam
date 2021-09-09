@@ -12,7 +12,7 @@
   },
   "scripts": {
     "prebuild": "rm -rf ./dist",
-    "build": "./node_modules/.bin/tsc -p .",
+    "build": "tsc -p .",
     "postbuild": "copyfiles -a \"./templates/**\" ./dist",
     "format": "prettier --write \"src/**/*.ts\"",
     "format:fix": "pretty-quick --staged",
