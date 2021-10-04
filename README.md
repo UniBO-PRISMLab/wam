@@ -8,6 +8,8 @@
 
 WAM ❤ [td-code](https://marketplace.visualstudio.com/items?itemName=arces-wot.td-code). Please install it in your vscode instance to have a even more pleasant WoT development experience.
 
+Want to see WAM in action? Check this [📽 short video presentation](https://www.youtube.com/watch?v=bPxIfZo7jns&t=297s). 
+
 # Installation
 
 ```
