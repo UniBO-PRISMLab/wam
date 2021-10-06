@@ -6,7 +6,8 @@
   "scripts": {
     "build" : "wam build ./src/thing.js ./dist/bundle.js",
     "debug" : "wot-servient --inspect-brk -f servient.config.json ./src/thing.js",
-    "start" : "wot-servient -f servient.config.json ./dist/bundle.js"
+    "start:prod" : "wot-servient -f servient.config.json ./dist/bundle.js",
+    "start": "npm run build && npm run start"
   },
   "keywords": [
     {{#each keywords}}
