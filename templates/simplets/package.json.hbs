@@ -6,7 +6,8 @@
   "scripts": {
     "build" : "wam build --typescript ./src/thing.ts ./dist/bundle.js",
     "debug" : "wot-servient --inspect-brk -f servient.config.json ./dist/bundle.js",
-    "start" : "wot-servient -f servient.config.json ./dist/bundle.js"
+    "start" : "wot-servient -f servient.config.json ./dist/bundle.js",
+    "start:dev" : "nodemon -w \"src/**\" --ext \"ts,json\" --exec \"npm run build && npm run start\""
   },
   "keywords": [
     {{#each keywords}}
@@ -19,7 +20,8 @@
     "@node-wot/cli": "^0.7.0",
     "@arces-wot/wam": "{{selfVersion}}",
     "@rollup/plugin-typescript": "^2.0.1",
-    "typescript": "^3.6.4"
+    "typescript": "^3.6.4",
+    "nodemon": "^2.0.14"
   },
   "dependencies": {
     "@node-wot/core": "^0.7.0"
