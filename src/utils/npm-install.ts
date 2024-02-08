@@ -1,7 +1,14 @@
+import { spawn } from 'child_process';
+
 export default async function install(projectDir: string): Promise<void> {
   // Sadly npm 8 throws an error on import and we need to catch it
   // here.
-  const npm = await import('npm');
+  let npm = null;
+  try {
+    npm = await import('npm');
+  } catch (error) {
+    return installV8AndLater(projectDir);
+  }
   // @ts-ignore
   const version = npm.version;
   if (version.startsWith('6.')) {
@@ -9,7 +16,7 @@ export default async function install(projectDir: string): Promise<void> {
   } else if (version.startsWith('7.')) {
     return installV7(projectDir, npm);
   } else {
-    throw new Error(`Unsupported npm version: ${version}`);
+    return installV8AndLater(projectDir);
   }
 }
 
@@ -42,5 +49,29 @@ function installV7(projectDir: string, npm: any): Promise<void> {
         }
       });
     });
+  });
+}
+
+function installV8AndLater(projectDir: string): Promise<void> {
+  return new Promise((resolve, reject) => {
+    const bufferedOutput: Array<{ stream: NodeJS.WriteStream; data: Buffer }> = [];
+
+    const childProcess = spawn('npm', ['install'], {
+      // Always pipe stderr to allow for failures to be reported
+      stdio: ['ignore', 'ignore', 'pipe'],
+      shell: true,
+      cwd: projectDir,
+    }).on('close', (code: number) => {
+      if (code === 0) {
+        resolve();
+      } else {
+        bufferedOutput.forEach(({ stream, data }) => stream.write(data));
+        reject(new Error('npm install failed'));
+      }
+    });
+
+    if (childProcess.stderr) {
+      childProcess.stderr.on('data', (data: Buffer) => bufferedOutput.push({ stream: process.stdout, data }));
+    }
   });
 }

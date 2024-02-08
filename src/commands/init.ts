@@ -35,12 +35,12 @@ export async function init(directory: any): Promise<void> {
 
   console.log();
   console.log(`${chalk.bold('Thanks!')}; installing packages using ${chalk.bold('npm')}:`);
+  console.log(`Installing...`);
 
   try {
     await install(selectedDirectory);
   } catch (error) {
-    console.log(`${chalk.bold('💥')} npm couldn't install your packages; are you using ${chalk.bold('npm')} 8?`);
-    console.log(`See https://github.com/UniBO-PRISMLab/wam/issues/26`);
+    console.log(`${chalk.bold('💥')} npm couldn't install your packages;`);
     console.log(`As a workaround, you can run ${chalk.bold('npm install')} manually.`);
   }
 
