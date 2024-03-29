@@ -10,6 +10,7 @@ import * as packageJson from '../../package.json';
 import chalk from 'chalk';
 import { Lang } from '../models/choice';
 import install from '../utils/npm-install';
+import ora from 'ora';
 
 export async function init(directory: any): Promise<void> {
   const selectedDirectory = directory ? directory : '.';
@@ -35,12 +36,16 @@ export async function init(directory: any): Promise<void> {
 
   console.log();
   console.log(`${chalk.bold('Thanks!')}; installing packages using ${chalk.bold('npm')}:`);
-  console.log(`Installing...`);
+  const spinner = ora({
+    text: `Installing`,
+    spinner: 'dots',
+  }).start();
 
   try {
     await install(selectedDirectory);
+    spinner.succeed(`Done! ${chalk.bold('🎉')}`);
   } catch (error) {
-    console.log(`${chalk.bold('💥')} npm couldn't install your packages;`);
+    spinner.fail(`${chalk.bold('💥')} npm couldn't install your packages;`);
     console.log(`As a workaround, you can run ${chalk.bold('npm install')} manually.`);
   }
 
