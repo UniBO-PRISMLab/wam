@@ -2,6 +2,10 @@
 
 [![npm version](https://badge.fury.io/js/%40arces-wot%2Fwam.svg)](https://badge.fury.io/js/%40arces-wot%2Fwam)
 
+> [!IMPORTANT]
+> Please be advised that the development of this tool has moved to its new home at [Eclipse Thingweb](https://github.com/eclipse-thingweb/wam). We thank the [IoT Prism Lab](https://www.cs.unibo.it/~difelice/prismlab.html)
+for the initial support and incubation. We look forward to seeing you there!
+
 # WoT Application Manager
 
 🚀 jumpstart your WoT application!
